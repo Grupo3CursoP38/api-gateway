@@ -4,6 +4,7 @@ const fetch = require("node-fetch");
 
 const authentication = async ({ request_ }) => {
     const token = request_.headers.authorization || '';
+    console.log(typeof(token))
 
     if (token == '') {
         return { userIdToken: null }
@@ -20,9 +21,8 @@ const authentication = async ({ request_ }) => {
 
             //PETICION
             let response = await fetch(
-
                 //String template para crear la ruta completa.
-                `${serverConfig.authAPIUrl}/verifyToken/`,
+                `${serverConfig.auth_api_url}/verifyToken/`,
                 requestOptions
             )
 
@@ -31,7 +31,9 @@ const authentication = async ({ request_ }) => {
                 throw new ApolloError(`La sesión está inactiva - ${401}` + response.status, 401)
             }
 
-            return { userIdToken: (await response.json()).UserId };
+            return { 
+                userIdToken: (await response.json()).UserId 
+            };
 
         } catch (err) {
             console.log(err)

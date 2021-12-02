@@ -21,7 +21,7 @@ const authTypes = gql`
         password: String!
     }
 
-    type userInput {
+    type SignUpInput {
         id: Int!
         email: String!
         name: String!
@@ -31,12 +31,32 @@ const authTypes = gql`
         password: String!
     }
 
-    type UpdateUser {
+    type UserDetail {
+        id: Int!
         email: String!
         name: String!
         lastname: String!
         phone: String!
         birthdate: String!
+    }
+
+    type UserPartialUpdate {
+        email: String
+        name: String
+        lastname: String
+        phone: String
+        birthdate: String
+    }
+
+    
+    extend type Query {
+        userDetailById(userId: Int!): UserDetail!
+    }
+
+    extend type Mutation {
+        signUpUser(user: SignUpInput!): Tokens!
+        logIn(credentials: Credentials!): Tokents!
+        refreshToken(refresh : Refresh!): Access!
     }
 `;
 
