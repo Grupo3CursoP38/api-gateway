@@ -1,0 +1,16 @@
+{
+    "name": "rentalproject_api_gateway",
+    "version": "1.0.0",
+    "private": true,
+    "description": "This is an Api Gateway to handle rental ms project",
+    "author": "Santiago Meneses",
+    "license": "ISC",
+    "scripts": {},
+    "dependencies": {
+        "apollo-datasource-rest": "^3.1.1",
+        "apollo-server": "^3.1.2",
+        "graphql": "^15.5.1",
+        "lodash": "^4.17.21",
+        "node-fetch": "3.1.0"
+    }
+}
