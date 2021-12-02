@@ -1,0 +1,29 @@
+{
+  "name": "api-gateway",
+  "version": "1.0.0",
+  "description": "Api Gateway using GrahpQL for microservices",
+  "main": "index.js",
+  "dependencies": {
+    "apollo-datasource-rest": "^3.4.0",
+    "apollo-server": "^3.5.0",
+    "graphql": "^16.0.1",
+    "node-fetch": "^3.1.0",
+    "lodash": "^4.17.21"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Grupo3CursoP38/api-gateway.git"
+  },
+  "keywords": [
+    "graphql"
+  ],
+  "author": "",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/Grupo3CursoP38/api-gateway/issues"
+  },
+  "homepage": "https://github.com/Grupo3CursoP38/api-gateway#readme"
+}
