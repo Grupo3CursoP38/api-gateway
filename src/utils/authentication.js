@@ -2,18 +2,19 @@ const { ApolloError } = require('apollo-server');
 const serverConfig = require("../server");
 const fetch = require("node-fetch");
 
-const authentication = async ({ request_ }) => {
-    const token = request_.headers.authorization || '';
-    console.log(typeof(token))
+const authentication = async ({ req }) => {
+    const token = req.headers.authorization || '';
 
     if (token == '') {
+        console.log("Ningún token recibido.");
         return { userIdToken: null }
     }
     else {
         try {
+            console.log("Token recibido: " + token);
 
             let requestOptions = {
-                method: "POST",
+                method: 'POST',
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({ token }),
                 redirect: "follow"
@@ -22,22 +23,23 @@ const authentication = async ({ request_ }) => {
             //PETICION
             let response = await fetch(
                 //String template para crear la ruta completa.
-                `${serverConfig.auth_api_url}/verifyToken/`,
+                `${serverConfig.auth_api_url}verifyToken/`,
                 requestOptions
             )
 
             if (response.status != 200) {
+                response = await response.json();
                 console.log(response);
-                throw new ApolloError(`La sesión está inactiva - ${401}` + response.status, 401)
+                throw new ApolloError(`Error Detail: ` + response.detail, 401);
             }
-
-            return { 
-                userIdToken: (await response.json()).UserId 
+   
+            return {
+                userIdToken: (await response.json()).UserId
             };
 
         } catch (err) {
             console.log(err)
-            throw new ApolloError('Autenticación fallida' + err, 500)
+            throw new ApolloError(`Autenticación fallida: ${err} `, 500)
         }
     }
 }

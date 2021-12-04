@@ -13,7 +13,7 @@ const vehicleTypes = gql`
         in_use: Boolean!
     }
 
-    type VehicleInput {
+    input VehicleInput {
         id: Int!
         type: String!
         name: String!
@@ -23,7 +23,8 @@ const vehicleTypes = gql`
         img_url: String!
     }
 
-    type VehiclePartialUpdate{
+    input VehiclePartialUpdate{
+        id: Int!
         type: String
         name: String
         short_description: String
@@ -35,16 +36,16 @@ const vehicleTypes = gql`
 
     
     extend type Query {
-        vehicleDetailById(vehicleId: Int!): VehicleDetail!
-        vehiclesByType(type: String!): [VehicleDetail]
-        getVehicles(): [VehicleDetail]
+        getVehicleById(vehicleId: Int!): VehicleDetail!
+        getVehiclesByType(type: String!): [VehicleDetail]
+        getVehicles: [VehicleDetail]
     }
  
     extend type Mutation {
         createVehicle(vehicle: VehicleInput!): VehicleDetail
         updateVehicle(vehicle: VehiclePartialUpdate!): VehicleDetail
-        deleteVehicle(vehicleId : Int!): String
-        deactiveVehicle(vehicleId : Int!): String
+        deactiveVehicle(vehicleId: Int!): String
+        deleteVehicle(vehicleId: Int!): String
     }
 
 `;

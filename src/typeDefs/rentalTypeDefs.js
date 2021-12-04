@@ -10,7 +10,7 @@ const rentalTypes = gql `
         vehicle_id: Int!
     }
 
-    type RentalInput {
+    input RentalInput {
         id: String!
         date_finish: String!
         date_start: String!
@@ -19,20 +19,21 @@ const rentalTypes = gql `
         vehicle_id: Int!
     }
 
-    type RentalFinish {
+    input RentalFinish {
         id: String!
         is_active: Boolean!
     }
 
+
     extend type Query {
-        rentalDetailById(rentalId: Int!): RentalDetail!
-        rentalsByUserId(userId: Int!): [RentalDetail]
+        getRentalById(rentalId: Int!): RentalDetail!
+        getRentalsByUserId(userId: Int!): [RentalDetail]
+        getRentals: [RentalDetail]
     }
  
     extend type Mutation {
         createRental(rental: RentalInput!): RentalDetail
         finishRental(rental: RentalFinish!): RentalDetail
-
     }
 
 `;

@@ -3,7 +3,7 @@ const { gql } = require('apollo-server');
 //TODO Agregar password 2 (confirmación de las contraseña)
 const authTypes = gql`
 
-    type Tokens{
+    type Tokens {
         refresh: String!
         access: String!
     }
@@ -12,16 +12,16 @@ const authTypes = gql`
         access: String!
     }
 
-    type Refresh {
+    input Refresh {
         refresh: String!
     }
 
-    type Credentials {
+    input Credentials {
         email: String!
         password: String!
     }
 
-    type SignUpInput {
+    input SignUpInput {
         id: Int!
         email: String!
         name: String!
@@ -40,7 +40,8 @@ const authTypes = gql`
         birthdate: String!
     }
 
-    type UserPartialUpdate {
+    input UserPartialUpdate {
+        id: Int!
         email: String
         name: String
         lastname: String
@@ -48,15 +49,19 @@ const authTypes = gql`
         birthdate: String
     }
 
-    
-    extend type Query {
-        userDetailById(userId: Int!): UserDetail!
+
+    type Query {
+        getUserById(userId: Int!): UserDetail!
     }
 
-    extend type Mutation {
-        signUpUser(user: SignUpInput!): Tokens!
-        logIn(credentials: Credentials!): Tokents!
-        refreshToken(refresh : Refresh!): Access!
+    type Mutation {
+        createUser(user: SignUpInput!): Tokens!
+        updateUser(user: UserPartialUpdate!): UserDetail!
+        deactiveUser(userId: Int!): String
+        deleteUser(userId: Int!): String
+        logIn(credentials: Credentials!): Tokens!
+        refreshToken(refresh: Refresh!): Access!
+       
     }
 `;
 
