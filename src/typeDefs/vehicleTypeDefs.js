@@ -31,7 +31,7 @@ const vehicleTypes = gql`
         long_description: String
         color: String
         img_url: String
-        is_active: Boolean
+        in_use: Boolean
     }
 
     

@@ -12,21 +12,21 @@ class VehicleApi extends RESTDataSource {
     //Vehicle Services
     async createVehicle(vehicle) {
         vehicle = new Object(JSON.parse(JSON.stringify(vehicle)));
-        return await this.post('​/vehicles​/vehicles​/', vehicle);
+        return await this.post('/vehicles/vehicles/', vehicle);
     }
 
     async getVehicleById(vehicleId) {
-        return await this.get(`/vehicles​/vehicles​/${vehicleId}/`);
+        return await this.get(`/vehicles/vehicles/${vehicleId}/`);
     }
 
     async getVehicles() {
-        return await this.get(`/vehicles​/vehicles​/`);
+        return await this.get('vehicles/vehicles/');
     }
 
     async updateVehicle(vehicle) {
         vehicle = new Object(JSON.parse(JSON.stringify(vehicle)));
         let vehicleId = vehicle.id;
-        return await this.patch(`/vehicles​/vehicles​/${vehicleId}/`, vehicle);
+        return await this.patch(`/vehicles/vehicles/${vehicleId}/`, vehicle);
     }
 
     async deactiveVehicle(vehicleId) {
@@ -34,7 +34,7 @@ class VehicleApi extends RESTDataSource {
     }
 
     async deleteVehicle(vehicleId) {
-        return await this.delete(`/vehicles​/vehicles​/${vehicleId}/`);
+        return await this.delete(`/vehicles/vehicles/${vehicleId}/`);
     }
 }
 

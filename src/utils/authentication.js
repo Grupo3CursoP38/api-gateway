@@ -6,7 +6,7 @@ const authentication = async ({ req }) => {
     const token = req.headers.authorization || '';
 
     if (token == '') {
-        console.log("Ningún token recibido.");
+
         return { userIdToken: null }
     }
     else {
