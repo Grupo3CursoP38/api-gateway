@@ -11,7 +11,7 @@ Herramienta de administración de API que se encuentra entre un cliente ([rentme
 
 - [Santiago Meneses](https://interacpedia.com/user/santiago-meneses-1)
 - [Elkyn Silva](https://interacpedia.com/user/elkyn-silva-gonzalez)
-- [Andres Aldana](https://github.com/)
+- [Andres Aldana](https://interacpedia.com/user/andres-felipe-aldana-salinas)
 - [Rina Tejada](https://github.com/rishiteca)
 - [Alexander Granados](https://interacpedia.com/user/alexander-granados)
 
