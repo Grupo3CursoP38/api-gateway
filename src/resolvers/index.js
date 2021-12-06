@@ -1,7 +1,7 @@
 const authResolver = require('./authResolver')
 const vehicleResolver = require('./vehicleResolver')
-//const transactionResolver = require('./transactionResolver')
+const rentalResolver = require('./rentalResolver')
 const lodash = require('lodash')
 
-const resolvers = lodash.merge(authResolver, vehicleResolver);
+const resolvers = lodash.merge(authResolver, vehicleResolver, rentalResolver);
 module.exports = resolvers;

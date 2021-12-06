@@ -7,7 +7,7 @@ const authentication = require('./utils/authentication');
 //Data sources
 const AuthAPI = require('./dataSources/authAPI');
 const VehicleApi = require('./dataSources/vehicleApi');
-const RentalApi = require('./dataSources/rentalApi');
+const RentalApi = require('./dataSources/rentalAPI');
 
 const server = new ApolloServer({
     context: authentication,
