@@ -22,7 +22,6 @@ const authTypes = gql`
     }
 
     input SignUpInput {
-        id: Int!
         email: String!
         name: String!
         lastname: String!
