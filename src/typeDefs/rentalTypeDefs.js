@@ -11,7 +11,6 @@ const rentalTypes = gql `
     }
 
     input RentalInput {
-        id: String!
         date_finish: String!
         date_start: String!
         is_active: Boolean!
@@ -26,7 +25,7 @@ const rentalTypes = gql `
 
 
     extend type Query {
-        getRentalById(rentalId: Int!): RentalDetail!
+        getRentalById(rentalId: String!): RentalDetail!
         getRentalsByUserId(userId: Int!): [RentalDetail]
         getRentals: [RentalDetail]
     }

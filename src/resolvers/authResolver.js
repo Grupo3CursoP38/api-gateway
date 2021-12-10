@@ -72,8 +72,8 @@ const userResolver = {
             return await dataSources.authAPI.logIn(credentials);
         },
 
-        refreshToken: async (_, { token }, { dataSources }) => {
-            return await dataSources.authAPI.refreshToken(token);
+        refreshToken: async (_, { refresh }, { dataSources }) => {
+            return await dataSources.authAPI.refreshToken(refresh);
         },
     }
 };

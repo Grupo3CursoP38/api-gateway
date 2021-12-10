@@ -16,12 +16,12 @@ class RentalApi extends RESTDataSource {
     }
 
     async getRentalById(rentalId) {
-        return await this.get(`/rental/${rentalId}`);
+        return await this.get(`/rental/${rentalId}/`);
     }
 
     //TODO CREAR SERVICIO PARA TRAER RENTAS POR userId
     async getRentalsByUserId(userId) {
-        return await this.get(`/rental/${rentalId}`);
+        return await this.get(`/rental/${rentalId}/`);
     }
 
     async getRentals() {
