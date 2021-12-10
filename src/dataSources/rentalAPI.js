@@ -12,26 +12,26 @@ class RentalApi extends RESTDataSource {
     //Rental Services
     async createRental(rental) {
         rental = new Object(JSON.parse(JSON.stringify(rental)));
-        return await this.post('​/rental', rental);
+        return await this.post('/rental', rental);
     }
 
     async getRentalById(rentalId) {
-        return await this.get(`/rental/${rentalId}/`);
+        return await this.get(`/rental/${rentalId}`);
     }
 
     //TODO CREAR SERVICIO PARA TRAER RENTAS POR userId
     async getRentalsByUserId(userId) {
-        return await this.get(`/rental/${userId}/`);
+        return await this.get(`/rental/${rentalId}`);
     }
 
     async getRentals() {
-        return await this.get('​/rental');
+        return await this.get('/rental/');
     }
 
     async finishRental(cancelRental) {
         cancelRental = new Object(JSON.parse(JSON.stringify(cancelRental)));
         let rentalId = cancelRental.id;
-        return await this.put(`/rental/${rentalId}/`, cancelRental);
+        return await this.put(`/rental/${rentalId}`, cancelRental);
     }
 
 }
